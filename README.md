@@ -13,11 +13,11 @@ Project Title
 
 ### **_Description_**
 
-##### I will be developing a 'snake' game that will be similar to the classic arcade game that requires the user to navigate around a grid without hitting the walls or itself.
+##### I will be developing a 'snake' game that will be similar to the classic arcade game that requires the user to navigate around a grid without the wall or hitting itself.
 
 ##### The user can increase its score by collecting apples that will be placed randomly around the grid. each time the user collects an apple, the length of the snake will increase by one unit.
 
-##### The game will require the user to use the arrow keys to navigate around the arena and increase its length without out hitting its self and the walls
+##### The game will require the user to navigate using the arrow keys to move around the arena, the user can replay and try to beat their previous high score.
 
 ---
 
