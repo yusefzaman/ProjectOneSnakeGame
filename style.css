@@ -21,7 +21,8 @@ img {
 }
 
 a {
-  text-align: center;
+  display: block;
+  margin: auto;
 }
 
 button {
@@ -34,10 +35,10 @@ button {
 }
 
 #para1 {
-  padding: 10px 20px 20px 20px;
 }
 
 #para2 {
-  text-align: center;
-  padding: 10px 20px 20px 20px;
+}
+
+#para3 {
 }
