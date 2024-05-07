@@ -56,11 +56,11 @@ border: darkgreen 5px solid;
 padding: 20px;
 }
 
-.arena {
+#arena {
   display: grid;
   grid-template-columns: repeat(25, 20px);
   grid-template-rows: repeat(25, 20px);
-  margin: 10px;
+  background-color: darkseagreen;
 }
 
 .boardborder{
