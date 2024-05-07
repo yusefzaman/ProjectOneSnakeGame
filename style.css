@@ -44,8 +44,8 @@ button {
 }
 
 .snake{
-  background-color: black;
-  border:silver 1px  dotted;
+  background-color: rgb(228, 50, 255);
+  border:rgb(0, 255, 123) 2px  solid;
 }
 .apple{
 background-color: greenyellow;
@@ -60,7 +60,7 @@ padding: 20px;
   display: grid;
   grid-template-columns: repeat(25, 20px);
   grid-template-rows: repeat(25, 20px);
-  background-color: darkseagreen;
+  background-color: rgb(250, 199, 199);
 }
 
 .boardborder{
