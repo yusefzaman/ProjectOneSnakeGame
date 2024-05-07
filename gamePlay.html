@@ -5,12 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <script defer src="script.js"></script>
-  <title>Document</title>
+  <title>Snake!</title>
 </head>
 <body>
-<div class="board"> </div>
-  <div class="buttons">
-    <div id="Restart"> Start Button</div>
+
+  <h1 class="gameTitle"> Snake! </h1>
+  <div class="score">
+    <h3 id="scoreHeader">Score: </h3>
+    <h3 id="scoreValue"> 001 </h3>
   </div>
+<div class="boardborder"> 
+  <div class="innerborder">
+    <div class="mainboard">
+      <div class="arena"> </div>
+    </div>
+  </div>
+</div>
+<div class="buttons"> </div>
+<nav class="gameplaybuttons"> 
+  <a href="./starterPage.html">
+    <button id="return">Return </button>
+  </a>
+  <a href=>
+    <button id="restart" type="button" onclick="">Play Again</button>
+  </a>
 </body>
 </html>

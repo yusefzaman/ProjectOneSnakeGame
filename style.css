@@ -2,13 +2,18 @@ body,
 html {
   margin: 0;
   padding: 0;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
 }
 
 .gameTitle {
-  color: darkseagreen;
+  color: black;
   font-size: xx-large;
-  text-align: center;
-  padding: 15px 10px 15px 10px;
+  padding: 15px 20px;
   display: block;
   margin: auto;
 }
@@ -20,18 +25,64 @@ img {
   margin: auto;
 }
 
-a {
+button {
+  width: 235px;
+  height: 50px;
+  cursor: pointer;
+  font-size: larger;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
   display: block;
   margin: auto;
 }
 
-button {
-  width: 100px;
-  height: 50px;
+.arena {
+  display: grid;
+  grid-template-columns: repeat(25, 20px);
+  grid-template-rows: repeat(25, 20px);
+  margin: 5px;
+}
+
+.boardborder{
+  border: black solid 10px;
+  border-radius: 15px;
+}
+.innerborder{
+  border: darkolivegreen solid 10px;
+  border-radius: 5px;
+}
+.mainboard{
+  border: black solid 10px;
+  border-radius: 1px;
+}
+
+#start {
+  background-color: darkgreen;
+  color: wheat;
+}
+
+.gameplaybuttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+  padding-top: 20px;
+}
+
+#restart {
+  background-color: rgb(7, 120, 101);
+  color: yellow;
+}
+
+#return {
+  background-color: maroon;
+  color: yellow;
 }
 
 .instructions {
   text-align: center;
+  border: 2px solid white;
+  margin: 15px 300px 15px 300px;
 }
 
 #para1 {
@@ -41,4 +92,19 @@ button {
 }
 
 #para3 {
+}
+
+.score {
+  border: 5px dotted red;
+  border-radius: 40px;
+  width: 200px;
+}
+
+#scoreHeader {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.snake {
+  background-color: darkseagreen;
 }
