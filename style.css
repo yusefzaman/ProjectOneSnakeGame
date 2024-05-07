@@ -7,13 +7,17 @@ html {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  text-align: center;
+}
+
+.starterPage {
+  flex-direction: column;
+  background-color: darkcyan;
+  padding-bottom: 200px;
 }
 
 .gameTitle {
   color: black;
   font-size: xx-large;
-  padding: 15px 20px;
   display: block;
   margin: auto;
 }
@@ -22,7 +26,6 @@ img {
   border: 5px solid black;
   border-radius: 10px;
   display: block;
-  margin: auto;
 }
 
 button {
@@ -36,11 +39,28 @@ button {
   margin: auto;
 }
 
+.gamePlay {
+  background-color: white;
+}
+
+.snake{
+  background-color: black;
+  border:silver 1px  dotted;
+}
+.apple{
+background-color: greenyellow;
+border: darkgreen 5px solid;
+}
+
+.outerboard{
+padding: 20px;
+}
+
 .arena {
   display: grid;
   grid-template-columns: repeat(25, 20px);
   grid-template-rows: repeat(25, 20px);
-  margin: 5px;
+  margin: 10px;
 }
 
 .boardborder{
@@ -48,7 +68,7 @@ button {
   border-radius: 15px;
 }
 .innerborder{
-  border: darkolivegreen solid 10px;
+  border: grey solid 10px;
   border-radius: 5px;
 }
 .mainboard{
@@ -63,10 +83,9 @@ button {
 
 .gameplaybuttons {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   gap: 30px;
-  padding-top: 20px;
 }
 
 #restart {
@@ -81,8 +100,8 @@ button {
 
 .instructions {
   text-align: center;
-  border: 2px solid white;
-  margin: 15px 300px 15px 300px;
+  margin-left: 400px;;
+  margin-right: 400px;
 }
 
 #para1 {
@@ -95,16 +114,11 @@ button {
 }
 
 .score {
+  display: flex;
+  font-size: 20px;
   border: 5px dotted red;
   border-radius: 40px;
   width: 200px;
+  justify-content: center;
 }
 
-#scoreHeader {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.snake {
-  background-color: darkseagreen;
-}
