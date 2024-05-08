@@ -175,3 +175,21 @@ function checkCollision() {
     }
   }
 }
+
+// in this fucniton we want to call the constant currentScore, and then a condition for it to set the highScore to current score if the high score is lower than it.
+function updateHighScore() {
+  const currentScore = snake.length - 1
+  if (currentScore > highScore) {
+    highScore = currentScore
+    highScoreText.textContent = highScore.toString()
+  }
+  highScoreText.style.display = 'block'
+}
+
+// to stop the game we want to clear the interval, then set the initiateSnake to false. and then redisplay the instruction text and the logo. 
+function stopGame() {
+  clearInterval(snakeInterval)
+  initiateSnake = false
+  instructionText.style.display = 'block'
+  logo.style.display = 'block'
+}
