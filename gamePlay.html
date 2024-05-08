@@ -7,30 +7,31 @@
   <script defer src="script.js"></script>
   <title>Snake!</title>
 </head>
-<body class="gamePlay">
-  <h1 class="gamePlayTitle"> Snake! </h1>
-  <div class="score">
-    <h3 id="scoreHeader">Score: </h3>
-    <h3 id="scoreValue"> 000 </h3>
-</div>
-
-<div class="outerboard">
-  <div class="boardborder"> 
-    <div class="innerborder">
-      <div class="mainboard">
-        <div id="arena"> </div>
+  <body>
+      <div>
+      <div class="scores">
+        <h1 id="score">0</h1>
+        <h1 id="highScore">0</h1>
+      </div>
+      <div class="game-border-1">
+        <div class="game-border-2">
+          <div class="game-border-3">
+            <div id="game-board"></div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+    <h1 id="instructions">Press The Spacebar to Play</h1>
+    <img id="logo" src="https://cdn.akamai.steamstatic.com/steam/apps/780750/header.jpg?t=1528049846" alt="snake-logo" />
 
-<div class="buttons"> </div>
+    <div class="buttons"> </div>
 <nav class="gameplaybuttons"> 
   <a href="./index.html">
     <button id="return">Return </button>
   </a>
   <a href="gamePlay.html">
-    <button id="restart" type="button" onclick="">Play Again</button>
+    <button id="restart" type="button" onclick="">Reset</button>
   </a>
-</body>
+
+  </body>
 </html>
