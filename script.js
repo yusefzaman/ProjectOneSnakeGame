@@ -40,3 +40,5 @@ function placeApple() {
   initiatePos(appleUnit, apple)
   board.appendChild(appleUnit)
 }
+
+construct()
