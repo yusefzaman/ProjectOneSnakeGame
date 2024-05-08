@@ -121,33 +121,30 @@ function startGame() {
 }
 
 // event listeners to detect key presses. when a key is pressed then run the function playGame and change the direction to the relevant value.
-function keyPressDetector(event) {
+function handleKeyPress(event) {
   if (
-    (!snakeInitiate && event.code === 'Space') ||
-    (!snakeInitiate && event.key === '')
+    (!initiateSnake && event.code === 'Space') ||
+    (!initiateSnake && event.key === ' ')
   ) {
-    playGame()
+    startGame()
   } else {
     switch (event.key) {
-      case 'UpArrow':
+      case 'ArrowUp':
         direction = 'up'
         break
-      case 'DownArrow':
+      case 'ArrowDown':
         direction = 'down'
         break
-      case 'LeftArrow':
+      case 'ArrowLeft':
         direction = 'left'
         break
-      case 'RightArrow':
+      case 'ArrowRight':
         direction = 'right'
         break
     }
   }
 }
 
-// i add in an event listener to keep listening for a key press and if detected it will run the function created above.
-document.addEventListener('keyDown', keyPressDetector)
+// we add in an event listener to keep listening for a key press and if detected it will run the function created above.
+document.addEventListener('keydown', handleKeyPress)
 
-function increaseSpeed() {
-  console.log(snakeDelay)
-}
