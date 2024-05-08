@@ -1,29 +1,34 @@
 // global varaibles set at the top of the page.
 
 // baord will get the element that i gave an 'id' of arena.
-const board = document.getElementById(`arena`)
+const board = document.getElementById('game-board')
+
+const instructionText = document.getElementById('instructions')
+const logo = document.getElementById('logo')
+const score = document.getElementById('score')
+const highScoreText = document.getElementById('highScore')
 
 // we set the grid size that we want - so we want a 20 by 20.
 const gridSize = 20
-
 // we set the start posiiton of the snake - on the 5th unit in the x and y.
 let snake = [{ x: 5, y: 5 }]
 // the variable apple will be set to whatever is the output of the function created to randomise the apple coordinates.
 let apple = generateApple()
+let highScore = 0
 
 // we want to set the default direciton to be left.
-let direction = 'left'
+let direction = 'right'
 
 // defining the interval of movement and delay.
 let snakeInterval
 let snakeDelay = 150
 
 // we predefine the value of the variable that will be used in the game initiation funciton.
-let snakeInitiate = false
+let initiateSnake = false
 
-// this function is used to create an new element with the class name that is set - this will be used for either apple or snake.
-function createUnit(indentifier, className) {
-  const element = document.createElement(indentifier)
+// Create a snake or apple cube/div
+function createUnit(identifier, className) {
+  const element = document.createElement(identifier)
   element.className = className
   return element
 }
@@ -37,9 +42,9 @@ function initiatePos(element, position) {
 // this funciton will define the snake and how it will appear, for each segment it will create every snake element with a div and a snake class.
 function constructSnake() {
   snake.forEach((segment) => {
-    const snakeUnit = createUnit('div', 'snake')
-    initiatePos(snakeUnit, segment)
-    board.appendChild(snakeUnit)
+    const snakeElement = createUnit('div', 'snake')
+    initiatePos(snakeElement, segment)
+    board.appendChild(snakeElement)
   })
 }
 
