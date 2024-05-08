@@ -161,11 +161,16 @@ function increaseSpeed() {
   }
 }
 
-// the following collistion is created to check if the snake firstPos hits the wall or itself.
+// the following function is created to check if the snake head hits the wall or itself.
 function checkCollision() {
   const firstPos = snake[0]
   // the logic has been added to recognise that the firstPos coordinates hits zero or hits the max grid size then it will reset the game.
-  if (firstPos.x < 1 || firstPos.x > gridSize || firstPos.y < 1 || firstPos.y > gridSize) {
+  if (
+    firstPos.x < 1 ||
+    firstPos.x > gridSize ||
+    firstPos.y < 1 ||
+    firstPos.y > gridSize
+  ) {
     resetGame()
   }
   // we are checking that if the firstPos coordinates and snake body coordinates, then we will resest the game as this means it has hit itself.
@@ -176,7 +181,7 @@ function checkCollision() {
   }
 }
 
-// in this fucniton we want to call the constant currentScore, and then a condition for it to set the highScore to current score if the high score is lower than it.
+// in this function we want to call the constant currentScore, and then a condition for it to set the highScore to current score if the high score is lower than it.
 function updateHighScore() {
   const currentScore = snake.length - 1
   if (currentScore > highScore) {
@@ -186,7 +191,7 @@ function updateHighScore() {
   highScoreText.style.display = 'block'
 }
 
-// to stop the game we want to clear the interval, then set the initiateSnake to false. and then redisplay the instruction text and the logo. 
+// to stop the game we want to clear the interval, then set the initiateSnake to false. and then redisplay the instruction text and the logo.
 function stopGame() {
   clearInterval(snakeInterval)
   initiateSnake = false
@@ -194,14 +199,14 @@ function stopGame() {
   logo.style.display = 'block'
 }
 
-// this function creates a constant with the current score which is calculated by taking the length and minusing 1. 
- // the score content is set to the snake length and then adds zeros to the remainder of the 3 digit score.
- function updateScore() {
+// this function creates a constant with the current score which is calculated by taking the length and minusing 1.
+// the score content is set to the snake length and then adds zeros to the remainder of the 3 digit score.
+function updateScore() {
   const currentScore = snake.length - 1
   score.textContent = currentScore.toString()
 }
 
-// when this funciton runs, the high score is updated and then the stopgame funtion is run. 
+// when this funciton runs, the high score is updated and then the stopgame funtion is run.
 function resetGame() {
   updateHighScore()
   stopGame()
