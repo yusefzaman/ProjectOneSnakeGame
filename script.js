@@ -1,12 +1,12 @@
-// global varaibles set at the top of the page
+// global varaibles set at the top of the page.
 
-// baord will get the element that i gave an 'id' of arena
+// baord will get the element that i gave an 'id' of arena.
 const board = document.getElementById(`arena`)
 
-// we set the grid size that we want - so we want a 20 by 20
+// we set the grid size that we want - so we want a 20 by 20.
 const gridSize = 20
 
-// we set the start posiiton of the snake - on the 5th unit in the horizontal and vertical
+// we set the start posiiton of the snake - on the 5th unit in the horizontal and vertical.
 let snake = [{ horizontal: 5, vertical: 5 }]
 // the variable apple will be set to whatever is the output of the function created to randomise the apple coordinates.
 let apple = generateApple()
@@ -14,7 +14,14 @@ let apple = generateApple()
 // we want to set the default direciton to be left.
 let direction = 'left'
 
-// this function is used to create an new element with the class name that is set - this will be used for either apple or snake
+// defining the interval of movement and delay.
+let snakeInterval
+let snakeDelay = 150
+
+// we predefine the value of the variable that will be used in the game initiation funciton.
+let snakeInitiate = false
+
+// this function is used to create an new element with the class name that is set - this will be used for either apple or snake.
 function createUnit(indentifier, className) {
   const element = document.createElement(indentifier)
   element.className = className
@@ -57,7 +64,7 @@ function construct() {
   constructApple()
 }
 
-// function that will move the snake, we use the spread operator to take the coordinates of the snake and the direction of the snake
+// function that will move the snake, we use the spread operator to take the coordinates of the snake and the direction of the snake.
 function movement() {
   const firstPos = { ...snake[0] }
   switch (direction) {
@@ -76,8 +83,30 @@ function movement() {
   }
   // when we change directions we want the firstPos object sent to the front of the array, so we use the unshift function that does that and puts it in.
   snake.unshift(firstPos)
-  // when changing direction we want to remove the last element in the array - so when we change direction it adds a unit in the direciton of moviement and removes the last one.
-  snake.pop()
+  // we want to set a condition that if the horizontal and vertical positions of the snake head and apple are equal, then the apple position randomiser should be run and the preset interval should be cleared.
+  if (
+    firstPos.horizontal === apple.horizontal &&
+    firstPos.vertical === apple.vertical
+  ) {
+    apple = generateApple()
+    clearInterval()
+    snakeInterval = setInterval(() => {
+      movement()
+      construct()
+    }, snakeDelay)
+    // we are setting the conditions to only run the snakeDelay if it runs in to the apple, remove the last element and add it to the front of the new direciton
+    snake.pop()
+  }
 }
+// when head runs in to an apple, the snake pop is skipped, when not run in to then it will just carry on and unshift and move in the new direction.
 
+// function created to initiate the gameplay, it sets out the sequence of funciton that will be called. 
+function playGame() {
+  snakeInitiate = true;
+  snakeInterval = setInterval(() => {
+    movement();
+    collisionCheck();
+    construct();
+  }, snakeDelay);
+}
 
