@@ -1,11 +1,88 @@
-body,
-html {
-  margin: 0;
-  padding: 0;
-  font-family: 'Courier New', Courier, monospace;
+body {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: darkcyan;
+}
+
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(20, 20px);
+  grid-template-rows: repeat(20, 20px);
+  /* margin: 5px; */
+  background-color: rgb(250, 199, 199);
+}
+
+.game-border-1 {
+  border: black solid 10px;
+  border-radius: 15px;
+}
+
+.game-border-2 {
+  border: grey solid 10px;
+  border-radius: 5px;
+}
+
+.game-border-3 {
+  border: black solid 10px;
+  border-radius: 1px;
+}
+
+#instructions {
+  position: absolute;
+  top: 60%;
+  color: black;
+  width: 400px;
+  text-align: center;
+  margin-top: 50px;
+  margin-right: 200px;
+}
+
+.instructions1 {
+  text-align: center;
+  color: white;
+  width: 550px;
+}
+
+.scores {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#score {
+  display: flex;
+  border: 5px dotted red;
+  border-radius: 40px;
+  width: 80px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+#highScore {
+  display: flex;
+  border-radius: 40px;
+  width: 80px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  color: gold;
+}
+
+.apple {
+  background-color: greenyellow;
+  border: darkgreen 5px solid;
+}
+
+#logo {
+  position: absolute;
+  margin-right: 200px;
+  width: 350px;
 }
 
 .starterPage {
@@ -19,12 +96,6 @@ html {
   font-size: 50px;
 }
 
-.gamePlayTitle {
-  color: white;
-  font-size: 50px;
-padding-left: 20px;
-}
-
 img {
   border: 5px solid black;
   border-radius: 10px;
@@ -32,19 +103,19 @@ img {
 }
 
 button {
-  width: 235px;
+  width: 150px;
   height: 50px;
   cursor: pointer;
   font-size: larger;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   display: block;
-  margin: auto;
+  margin-left: 50px;
 }
 
 .gamePlay {
   background-color: darkcyan;
-    height: 100vh;
+  height: 100vh;
 }
 
 .snake {
@@ -102,12 +173,6 @@ button {
   color: yellow;
 }
 
-.instructions {
-  text-align: center;
-  color: white;
-  width: 550px;
-}
-
 #para1 {
   padding-top: 20px;
 }
@@ -121,12 +186,4 @@ button {
   padding-bottom: 20px;
 }
 
-.score {
-  display: flex;
-  font-size: 20px;
-  border: 5px dotted red;
-  border-radius: 40px;
-  width: 200px;
-  justify-content: center;
-  color: white;
-}
+
