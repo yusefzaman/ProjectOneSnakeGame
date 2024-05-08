@@ -193,3 +193,22 @@ function stopGame() {
   instructionText.style.display = 'block'
   logo.style.display = 'block'
 }
+
+// this function creates a constant with the current score which is calculated by taking the length and minusing 1. 
+ // the score content is set to the snake length and then adds zeros to the remainder of the 3 digit score.
+ function updateScore() {
+  const currentScore = snake.length - 1
+  score.textContent = currentScore.toString()
+}
+
+// when this funciton runs, the high score is updated and then the stopgame funtion is run. 
+function resetGame() {
+  updateHighScore()
+  stopGame()
+  // the snake start location is set again, the apple position is randomly placed, and the direction and snakeDelay is set again.
+  snake = [{ x: 10, y: 10 }]
+  apple = generateApple()
+  direction = 'right'
+  snakeDelay = 200
+  updateScore()
+}
