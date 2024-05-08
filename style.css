@@ -16,10 +16,8 @@ html {
 }
 
 .gameTitle {
-  color: black;
-  font-size: xx-large;
-  display: block;
-  margin: auto;
+  color: white;
+  font-size: 50px;
 }
 
 img {
@@ -43,17 +41,17 @@ button {
   background-color: white;
 }
 
-.snake{
+.snake {
   background-color: rgb(228, 50, 255);
-  border:rgb(0, 255, 123) 2px  solid;
+  border: rgb(0, 255, 123) 2px solid;
 }
-.apple{
-background-color: greenyellow;
-border: darkgreen 5px solid;
+.apple {
+  background-color: greenyellow;
+  border: darkgreen 5px solid;
 }
 
-.outerboard{
-padding: 20px;
+.outerboard {
+  padding: 20px;
 }
 
 #arena {
@@ -63,15 +61,15 @@ padding: 20px;
   background-color: rgb(250, 199, 199);
 }
 
-.boardborder{
+.boardborder {
   border: black solid 10px;
   border-radius: 15px;
 }
-.innerborder{
+.innerborder {
   border: grey solid 10px;
   border-radius: 5px;
 }
-.mainboard{
+.mainboard {
   border: black solid 10px;
   border-radius: 1px;
 }
@@ -100,17 +98,25 @@ padding: 20px;
 
 .instructions {
   text-align: center;
-  margin-left: 400px;;
-  margin-right: 400px;
 }
 
 #para1 {
+  color: white;
+  padding-top: 10px;
+  margin-left: 350px;
+  margin-right: 350px;
 }
 
 #para2 {
+  color: white;
+  padding-top: 10px;
+  margin-left: 350px;
+  margin-right: 350px;
 }
 
 #para3 {
+  color: white;
+  padding-top: 10px;
 }
 
 .score {
@@ -121,4 +127,3 @@ padding: 20px;
   width: 200px;
   justify-content: center;
 }
-
