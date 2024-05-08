@@ -29,9 +29,11 @@ Project Title
 
 ### **_Screenshots_**
 
-##### image header 1
+##### GameStartPage
+![alt text](image.png)
 
-##### image header 2
+##### GamePlay
+![alt text](image-1.png)
 
 ### **_Credits_**
 

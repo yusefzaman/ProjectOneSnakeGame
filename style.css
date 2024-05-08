@@ -6,7 +6,6 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
 }
 
 .starterPage {
@@ -18,6 +17,12 @@ html {
 .gameTitle {
   color: white;
   font-size: 50px;
+}
+
+.gamePlayTitle {
+  color: white;
+  font-size: 50px;
+padding-left: 20px;
 }
 
 img {
@@ -38,7 +43,8 @@ button {
 }
 
 .gamePlay {
-  background-color: white;
+  background-color: darkcyan;
+    height: 100vh;
 }
 
 .snake {
@@ -98,25 +104,21 @@ button {
 
 .instructions {
   text-align: center;
+  color: white;
+  width: 550px;
 }
 
 #para1 {
-  color: white;
-  padding-top: 10px;
-  margin-left: 350px;
-  margin-right: 350px;
+  padding-top: 20px;
 }
 
 #para2 {
-  color: white;
-  padding-top: 10px;
-  margin-left: 350px;
-  margin-right: 350px;
+  padding-top: 20px;
 }
 
 #para3 {
-  color: white;
-  padding-top: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .score {
@@ -126,4 +128,5 @@ button {
   border-radius: 40px;
   width: 200px;
   justify-content: center;
+  color: white;
 }
