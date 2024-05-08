@@ -23,17 +23,19 @@ Project Title
 
 ### **_Getting Started_**
 
-#####
+##### Click on the start button from the starter page and then press the space bar to start the game.
 
 ---
 
 ### **_Screenshots_**
 
 ##### GameStartPage
+
 ![alt text](image.png)
 
 ##### GamePlay
-![alt text](image-1.png)
+
+![alt text](<Screenshot 2024-05-08 at 10.39.11 PM.png>)
 
 ### **_Credits_**
 

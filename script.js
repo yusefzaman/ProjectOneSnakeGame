@@ -6,8 +6,8 @@ const board = document.getElementById(`arena`)
 // we set the grid size that we want - so we want a 20 by 20.
 const gridSize = 20
 
-// we set the start posiiton of the snake - on the 5th unit in the horizontal and vertical.
-let snake = [{ horizontal: 5, vertical: 5 }]
+// we set the start posiiton of the snake - on the 5th unit in the x and y.
+let snake = [{ x: 5, y: 5 }]
 // the variable apple will be set to whatever is the output of the function created to randomise the apple coordinates.
 let apple = generateApple()
 
@@ -30,8 +30,8 @@ function createUnit(indentifier, className) {
 
 // this function sets the position of the snake or apple - in the style sheet this will define its position on the grid.
 function initiatePos(element, position) {
-  element.style.gridColumn = position.horizontal
-  element.style.gridRow = position.vertical
+  element.style.gridColumn = position.x
+  element.style.gridRow = position.y
 }
 
 // this funciton will define the snake and how it will appear, for each segment it will create every snake element with a div and a snake class.
@@ -50,11 +50,11 @@ function constructApple() {
   board.appendChild(appleUnit)
 }
 
-// this function is used to generate a random horozontal and vertical vector to place the apple on. and this is assigned to the horizontal and veritcal coordiante. Math.floor is used to get random intigers, and *10 allows the number returned to be between 0 and 10, and +1 is used so that the value can never be zero.
+// this function is used to generate a random horozontal and y vector to place the apple on. and this is assigned to the x and y coordiante. Math.floor is used to get random intigers, and *10 allows the number returned to be between 0 and 10, and +1 is used so that the value can never be zero.
 function generateApple() {
-  const horizontal = Math.floor(Math.random() * gridSize) + 1
-  const vertical = Math.floor(Math.random() * gridSize) + 1
-  return { horizontal, vertical }
+  const x = Math.floor(Math.random() * gridSize) + 1
+  const y = Math.floor(Math.random() * gridSize) + 1
+  return { x, y }
 }
 
 // function that has been created to create snake, apple and grid.
@@ -65,48 +65,80 @@ function construct() {
 }
 
 // function that will move the snake, we use the spread operator to take the coordinates of the snake and the direction of the snake.
+// when we change directions we want the firstPos object sent to the front of the array, so we use the unshift function that does that and puts it in.
+// we want to set a condition that if the x and y positions of the snake head and apple are equal, then the apple position randomiser should be run and the preset interval should be cleared.
+// we are setting the conditions to only run the snakeDelay if it runs in to the apple, remove the last element and add it to the front of the new direciton
 function movement() {
   const firstPos = { ...snake[0] }
   switch (direction) {
     case 'left':
-      firstPos.horizontal--
+      firstPos.x--
       break
     case 'right':
-      firstPos.horizontal++
+      firstPos.x++
       break
     case 'up':
-      firstPos.vertical--
+      firstPos.y--
       break
     case 'down':
-      firstPos.vertical++
+      firstPos.y++
       break
   }
-  // when we change directions we want the firstPos object sent to the front of the array, so we use the unshift function that does that and puts it in.
   snake.unshift(firstPos)
-  // we want to set a condition that if the horizontal and vertical positions of the snake head and apple are equal, then the apple position randomiser should be run and the preset interval should be cleared.
-  if (
-    firstPos.horizontal === apple.horizontal &&
-    firstPos.vertical === apple.vertical
-  ) {
+  
+  if (firstPos.x === apple.x && firstPos.y === apple.y) {
     apple = generateApple()
-    clearInterval()
+    increaseSpeed()
+    clearInterval(snakeInterval)
     snakeInterval = setInterval(() => {
       movement()
+      collisionCheck()
       construct()
     }, snakeDelay)
-    // we are setting the conditions to only run the snakeDelay if it runs in to the apple, remove the last element and add it to the front of the new direciton
+  } else {
     snake.pop()
   }
 }
 // when head runs in to an apple, the snake pop is skipped, when not run in to then it will just carry on and unshift and move in the new direction.
 
-// function created to initiate the gameplay, it sets out the sequence of funciton that will be called. 
+// function created to initiate the gameplay, it sets out the sequence of funciton that will be called.
 function playGame() {
-  snakeInitiate = true;
+  snakeInitiate = true
   snakeInterval = setInterval(() => {
-    movement();
-    collisionCheck();
-    construct();
-  }, snakeDelay);
+    movement()
+    collisionCheck()
+    construct()
+  }, snakeDelay)
 }
 
+// event listeners to detect key presses. when a key is pressed then run the function playGame and change the direction to the relevant value.
+function keyPressDetector(event) {
+  if (
+    (!snakeInitiate && event.code === 'Space') ||
+    (!snakeInitiate && event.key === '')
+  ) {
+    playGame()
+  } else {
+    switch (event.key) {
+      case 'UpArrow':
+        direction = 'up'
+        break
+      case 'DownArrow':
+        direction = 'down'
+        break
+      case 'LeftArrow':
+        direction = 'left'
+        break
+      case 'RightArrow':
+        direction = 'right'
+        break
+    }
+  }
+}
+
+// i add in an event listener to keep listening for a key press and if detected it will run the function created above.
+document.addEventListener('keyDown', keyPressDetector)
+
+function increaseSpeed() {
+  console.log(snakeDelay)
+}
