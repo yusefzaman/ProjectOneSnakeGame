@@ -48,11 +48,13 @@ function constructSnake() {
   })
 }
 
-// this funciton will create a div for the apple with a class of apple, and then we use the initiatePos function to set this div as the apple coordinates.
+// this funciton will create a div for the apple with a class of apple, and then we use the initiatePos function to set this div as the apple coordinates - this will only draw when the game is in the start state.
 function constructApple() {
-  const appleUnit = createUnit('div', 'apple')
-  initiatePos(appleUnit, apple)
-  board.appendChild(appleUnit)
+  if (initiateSnake) {
+    const appleUnit = createUnit('div', 'apple')
+    initiatePos(appleUnit, apple)
+    board.appendChild(appleUnit)
+  }
 }
 
 // this function is used to generate a random horozontal and y vector to place the apple on. and this is assigned to the x and y coordiante. Math.floor is used to get random intigers, and *10 allows the number returned to be between 0 and 10, and +1 is used so that the value can never be zero.
@@ -62,57 +64,59 @@ function generateApple() {
   return { x, y }
 }
 
-// function that has been created to create snake, apple and grid.
-function construct() {
+// this function is used to run the sequence of funcitons required to display the snake, apple and the score.
+function draw() {
   board.innerHTML = ''
   constructSnake()
   constructApple()
+  updateScore()
 }
 
 // function that will move the snake, we use the spread operator to take the coordinates of the snake and the direction of the snake.
-// when we change directions we want the firstPos object sent to the front of the array, so we use the unshift function that does that and puts it in.
-// we want to set a condition that if the x and y positions of the snake head and apple are equal, then the apple position randomiser should be run and the preset interval should be cleared.
-// we are setting the conditions to only run the snakeDelay if it runs in to the apple, remove the last element and add it to the front of the new direciton
 function movement() {
   const firstPos = { ...snake[0] }
   switch (direction) {
-    case 'left':
-      firstPos.x--
-      break
-    case 'right':
-      firstPos.x++
-      break
     case 'up':
       firstPos.y--
       break
     case 'down':
       firstPos.y++
       break
+    case 'left':
+      firstPos.x--
+      break
+    case 'right':
+      firstPos.x++
+      break
   }
+  // when we change directions we want the firstPos object sent to the front of the array, so we use the unshift function that does that and puts it in.
   snake.unshift(firstPos)
-  
+  // we want to set a condition that if the x and y positions of the snake firstPos and apple are equal, then the apple position randomiser should be run and the preset interval should be cleared.
   if (firstPos.x === apple.x && firstPos.y === apple.y) {
     apple = generateApple()
     increaseSpeed()
-    clearInterval(snakeInterval)
+    clearInterval(snakeInterval) // Clear past interval
     snakeInterval = setInterval(() => {
       movement()
-      collisionCheck()
-      construct()
+      checkCollision()
+      draw()
     }, snakeDelay)
+    // we are setting the conditions to only run the snakeDelay if it runs in to the apple, remove the last element and add it to the front of the new direciton
   } else {
     snake.pop()
   }
 }
-// when head runs in to an apple, the snake pop is skipped, when not run in to then it will just carry on and unshift and move in the new direction.
+// when firstPos runs in to an apple, the snake pop is skipped, when not run in to then it will just carry on and unshift and move in the new direction.
 
 // function created to initiate the gameplay, it sets out the sequence of funciton that will be called.
-function playGame() {
-  snakeInitiate = true
+function startGame() {
+  initiateSnake = true
+  instructionText.style.display = 'none'
+  logo.style.display = 'none'
   snakeInterval = setInterval(() => {
     movement()
-    collisionCheck()
-    construct()
+    checkCollision()
+    draw()
   }, snakeDelay)
 }
 
