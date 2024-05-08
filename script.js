@@ -148,3 +148,30 @@ function handleKeyPress(event) {
 // we add in an event listener to keep listening for a key press and if detected it will run the function created above.
 document.addEventListener('keydown', handleKeyPress)
 
+// the following funciton is used to regulate the speed, so that it isnt increating at a too high rate so that the game is still playable.
+function increaseSpeed() {
+  if (snakeDelay > 150) {
+    snakeDelay -= 5
+  } else if (snakeDelay > 100) {
+    snakeDelay -= 3
+  } else if (snakeDelay > 50) {
+    snakeDelay -= 2
+  } else if (snakeDelay > 25) {
+    snakeDelay -= 1
+  }
+}
+
+// the following collistion is created to check if the snake firstPos hits the wall or itself.
+function checkCollision() {
+  const firstPos = snake[0]
+  // the logic has been added to recognise that the firstPos coordinates hits zero or hits the max grid size then it will reset the game.
+  if (firstPos.x < 1 || firstPos.x > gridSize || firstPos.y < 1 || firstPos.y > gridSize) {
+    resetGame()
+  }
+  // we are checking that if the firstPos coordinates and snake body coordinates, then we will resest the game as this means it has hit itself.
+  for (let i = 1; i < snake.length; i++) {
+    if (firstPos.x === snake[i].x && firstPos.y === snake[i].y) {
+      resetGame()
+    }
+  }
+}
