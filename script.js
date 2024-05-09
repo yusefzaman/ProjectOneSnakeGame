@@ -214,6 +214,6 @@ function resetGame() {
   snake = [{ x: 10, y: 10 }]
   apple = generateApple()
   direction = 'right'
-  snakeDelay = 200
+  snakeDelay = 150
   updateScore()
 }
