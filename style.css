@@ -12,7 +12,6 @@ body {
   display: grid;
   grid-template-columns: repeat(20, 20px);
   grid-template-rows: repeat(20, 20px);
-  /* margin: 5px; */
   background-color: rgb(250, 199, 199);
 }
 
@@ -129,13 +128,6 @@ button {
 
 .outerboard {
   padding: 20px;
-}
-
-#arena {
-  display: grid;
-  grid-template-columns: repeat(25, 20px);
-  grid-template-rows: repeat(25, 20px);
-  background-color: rgb(250, 199, 199);
 }
 
 .boardborder {
