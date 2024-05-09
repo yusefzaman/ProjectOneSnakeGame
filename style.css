@@ -8,7 +8,7 @@ body {
   background-color: darkcyan;
 }
 
-#game-board {
+#arena {
   display: grid;
   grid-template-columns: repeat(20, 20px);
   grid-template-rows: repeat(20, 20px);
@@ -16,17 +16,17 @@ body {
   background-color: rgb(250, 199, 199);
 }
 
-.game-border-1 {
+.outerBorder {
   border: black solid 10px;
   border-radius: 15px;
 }
 
-.game-border-2 {
+.middleBorder {
   border: grey solid 10px;
   border-radius: 5px;
 }
 
-.game-border-3 {
+.innerBorder {
   border: black solid 10px;
   border-radius: 1px;
 }

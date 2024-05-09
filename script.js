@@ -1,7 +1,7 @@
 // global varaibles set at the top of the page.
 
 // baord will get the element that i gave an 'id' of arena.
-const board = document.getElementById('game-board')
+const board = document.getElementById('arena')
 
 const instructionText = document.getElementById('instructions')
 const logo = document.getElementById('logo')
