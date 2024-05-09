@@ -38,5 +38,9 @@ Project Title
 ![alt text](<Screenshot 2024-05-08 at 10.39.11 PM.png>)
 
 ### **_Credits_**
-
----
+### image taken from https://cdn.akamai.steamstatic.com/steam/apps/780750/header.jpg?t=1528049846%22%20alt=%22snake-logo
+#### other useful sites: 
+##### https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent 
+##### https://developer.mozilla.org/en-US/docs/Web/API/clearInterval
+##### https://developer.mozilla.org/en-US/docs/Web/API/setInterval
+##### https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift
